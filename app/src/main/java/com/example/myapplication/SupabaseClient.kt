@@ -45,9 +45,9 @@ object SupabaseClient {
         }
     }
 
-    suspend fun getShoes(): Shoe? {
+    suspend fun getShoes(): List<Shoe> {
         try {
-            var result = client.postgrest.from("shoes").select(columns = Columns.list("name", "price")).decodeSingleOrNull<Shoe>()
+            var result = client.postgrest.from("shoes").select(columns = Columns.list("name", "price")).decodeList<Shoe>()
             return result
         } catch (e: Exception) {
             e.printStackTrace()

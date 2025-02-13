@@ -4,6 +4,9 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
         <item name="colorPrimary">@color/accentColor</item>
+        <item name="background">@color/backgroundColor</item>
+        <item name="backgroundColor">@color/backgroundColor</item>
+        <item name="rippleColor">@color/black</item>
     </style>
 
     <style name="Theme.MyApplication" parent="Base.Theme.MyApplication" />
