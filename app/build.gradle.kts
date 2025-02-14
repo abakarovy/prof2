@@ -52,6 +52,7 @@ dependencies {
     implementation("io.ktor:ktor-utils:latest")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
 
+    implementation("com.yandex.android:maps.mobile:4.5.0-lite")
 
 
     implementation("androidx.core:core-ktx:latest")

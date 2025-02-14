@@ -9,6 +9,7 @@ import io.github.jan.supabase.createSupabaseClient
 import io.github.jan.supabase.postgrest.Postgrest
 import io.github.jan.supabase.postgrest.postgrest
 import io.github.jan.supabase.postgrest.query.Columns
+import io.github.jan.supabase.postgrest.query.filter.PostgrestFilterBuilder
 import io.github.jan.supabase.postgrest.query.request.SelectRequestBuilder
 import io.github.jan.supabase.postgrest.result.PostgrestResult
 import io.github.jan.supabase.serializer.KotlinXSerializer
@@ -52,7 +53,21 @@ object SupabaseClient {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        throw Exception()
+        throw RuntimeException("couldn't fetch data fr")
+    }
+
+    suspend fun getShoesByString(str: String): List<Shoe> {
+        try {
+            var result = client.postgrest.from("shoes").select(columns = Columns.list("name", "price")) {
+                filter {
+                    Shoe::name eq (str)
+                }
+            }.decodeList<Shoe>()
+            return result
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+        throw RuntimeException("couldn't fetch data fr")
     }
 
     
