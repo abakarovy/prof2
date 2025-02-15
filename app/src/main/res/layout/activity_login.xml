@@ -74,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6sp"
+            android:autofillHints="password"
             android:background="@drawable/rounded_corners"
             android:backgroundTint="@color/backgroundColor"
             android:ems="10"
@@ -106,6 +107,7 @@
             android:background="@drawable/rounded_corners"
             android:backgroundTint="@color/backgroundColor"
             android:textColorHint="@color/hint"
+            app:hintAnimationEnabled="false"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView6"
             app:passwordToggleEnabled="true">
@@ -114,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/transparent"
-                android:hint="pidar"
+                android:hint="*****"
                 android:padding="14sp"
                 android:password="true"
                 android:textColorHint="@color/hint" />
@@ -141,14 +143,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20sp"
-        android:background="@drawable/rounded_corners"
-        android:backgroundTint="@color/black"
         android:text="Войти"
         android:textSize="14sp"
-        android:theme="@style/Theme.MyApplication"
+        app:cornerRadius="6sp"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout2"
         app:layout_constraintStart_toStartOf="@+id/constraintLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:rippleColor="@color/black" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

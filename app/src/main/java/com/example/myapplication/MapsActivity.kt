@@ -1,8 +1,11 @@
 package com.example.myapplication
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
+import android.view.View
 import android.widget.Button
 import com.yandex.mapkit.MapKitFactory
 import com.yandex.mapkit.geometry.Point
@@ -30,7 +33,6 @@ class MapsActivity : AppCompatActivity() {
                 /* tilt = */ 30.0f
             )
         )
-
         cancelButton.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }

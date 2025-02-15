@@ -26,10 +26,11 @@ object SupabaseClient {
 
     suspend fun signIn(em: String, pw: String): Boolean {
         try {
-            client.auth.signInWith(Email) {
+            val res = client.auth.signInWith(Email) {
                 email = em
                 password = pw
             }
+            println(res)
             Log.i("SKIIIIII", "success")
             return true
         } catch (e: Exception) {
@@ -60,7 +61,7 @@ object SupabaseClient {
         try {
             var result = client.postgrest.from("shoes").select(columns = Columns.list("name", "price")) {
                 filter {
-                    Shoe::name eq (str)
+                    Shoe::name ilike ("%${str}%")
                 }
             }.decodeList<Shoe>()
             return result

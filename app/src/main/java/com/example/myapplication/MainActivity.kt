@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarView
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     lateinit var frameLayout: FrameLayout
@@ -32,12 +34,21 @@ class MainActivity : AppCompatActivity() {
             true
         })
         bottomBar.selectedItemId = R.id.home
+
+        lifecycleScope.launch {
+            val res = SupabaseClient.getShoesByString("p")
+            onRes(res)
+        }
     }
 
     private fun loadFragment(frag: Fragment) {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.mainFrameLayout, frag)
         transaction.commit()
+    }
+
+    private fun onRes(res: List<Shoe>) {
+        println(res)
     }
 
 

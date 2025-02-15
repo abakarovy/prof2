@@ -29,15 +29,17 @@ class LoginActivity : AppCompatActivity() {
             val email = emailField.text.toString()
             val password = passwordField.editText?.text.toString()
 
+            onSignInResult(true)
+
             if (!TextValidator.validateEmail(email)) {
                 invalidEmailDialog()
                 return@setOnClickListener
             }
 
-            lifecycleScope.launch {
-                val result = SupabaseClient.signIn(email, password)
-                onSignInResult(result)
-            }
+//            lifecycleScope.launch {
+//                val result = SupabaseClient.signIn(email, password)
+//                onSignInResult(result)
+//            }
         }
 
     }
